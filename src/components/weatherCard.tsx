@@ -1,6 +1,6 @@
 import { Weather } from "../types/Weather";
 
-const WeatherCard = ({ weather, loading }: { weather: Weather, loading: boolean }) => {
+export const WeatherCard = ({ weather, loading }: { weather: Weather, loading: boolean }) => {
 
     if (loading) {
         return (
@@ -47,5 +47,3 @@ const WeatherCard = ({ weather, loading }: { weather: Weather, loading: boolean 
         </div>
     );
 };
-
-export default WeatherCard;
