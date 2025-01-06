@@ -11,5 +11,6 @@ export interface Weather {
             icon: string;
         };
         temp_c: number;
+        feelslike_c: number;
     };
 }
