@@ -1,7 +1,6 @@
-import { useWeather } from "../hooks/useWeather";
+import { Weather } from "../types/Weather";
 
-const WeatherCard = ({ location }: { location: string }) => {
-    const { weather, loading } = useWeather(location);
+const WeatherCard = ({ weather, loading }: { weather: Weather, loading: boolean }) => {
 
     if (loading) {
         return (
@@ -25,8 +24,8 @@ const WeatherCard = ({ location }: { location: string }) => {
     } = weather;
 
     return (
-        <div className="text-white rounded-lg py-2 px-12">
-            <div className="flex justify-between">
+        <div className="text-white rounded-lg py-2 px-4 lg:px-12">
+            <div className="flex flex-col lg:flex-row justify-between">
                 <div className="flex flex-col justify-between">
                     <div className="">
                         <h1 className="text-3xl font-bold">{name}</h1>
