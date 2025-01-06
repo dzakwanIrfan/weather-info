@@ -1,50 +1,76 @@
-# React + TypeScript + Vite
+# Weather Info
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![TypeScript](https://img.shields.io/badge/language-TypeScript-blue)
+![JavaScript](https://img.shields.io/badge/language-JavaScript-yellow)
+![HTML](https://img.shields.io/badge/language-HTML-orange)
+![CSS](https://img.shields.io/badge/language-CSS-green)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Weather Info is a web application built to provide real-time weather information. This project is developed using modern web technologies including TypeScript, JavaScript, HTML, and CSS. The application fetches weather data from a reliable API and displays it in an intuitive and user-friendly interface.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Real-time Weather Data:** Get up-to-date weather information for any location.
+- **Search Functionality:** Easily search for weather data by city name or coordinates.
+- **Responsive Design:** Optimized for both desktop and mobile devices.
+- **TypeScript Integration:** Ensures type safety and better code maintainability.
+- **User-Friendly Interface:** Simple and clean design for a better user experience.
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **TypeScript:** Primary language for application logic.
+- **JavaScript:** Used for DOM manipulation and API calls.
+- **HTML:** Markup language for structuring the application.
+- **CSS:** Styling the application for an attractive look and feel.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+To set up the project locally, follow these steps:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/dzakwanIrfan/weather-info.git
+    cd weather-info
+    ```
+
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3. **Run the application:**
+    ```bash
+    npm start
+    ```
+
+The application will be available at `http://localhost:3000`.
+
+## Usage
+
+To use the application, enter the name of the city you want to get weather information for in the search bar and press enter. The current weather data for that city will be displayed.
+
+## Contributing
+
+We welcome contributions from the community. If you wish to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Acknowledgements
+
+- [OpenWeatherMap API](https://openweathermap.org/api) for providing weather data.
+- All contributors who have helped in the development of this project.
+
+## Contact
+
+For any inquiries or issues, please contact the repository owner at [dzakwanIrfan](https://github.com/dzakwanIrfan).
