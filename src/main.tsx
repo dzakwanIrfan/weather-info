@@ -7,8 +7,8 @@ import { SearchBar } from "./components/SearchBar";
 import { TodayForecastCard } from "./components/TodayForecastCard";
 import { AirConditionsCard } from "./components/AirConditionsCard";
 import { SevenDayForecast } from "./components/SevenDayForecast";
-import { WeatherCard } from "./components/WeatherCard";
 import './index.css'
+import { WeatherCard } from "./components/WeatherCard";
 
 const App = () => {
     const [selectedCity, setSelectedCity] = useState('Pemalang');
