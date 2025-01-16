@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export const SearchBar = ({ onCitySelect }: { onCitySelect: (city: string) => void }) => {
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState<string[]>([]);
+    const [isUserInput, setIsUserInput] = useState(true);
 
     useEffect(() => {
         if (query.length > 2) {
@@ -20,14 +21,16 @@ export const SearchBar = ({ onCitySelect }: { onCitySelect: (city: string) => vo
         } else {
             setSuggestions([]);
         }
-    }, [query]);
+    }, [query, isUserInput]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value);
+        setIsUserInput(true);
     };
 
     const handleSuggestionClick = (city: string) => {
         setQuery(city);
+        setIsUserInput(false);
         setSuggestions([]);
         onCitySelect(city);
     };
@@ -41,8 +44,8 @@ export const SearchBar = ({ onCitySelect }: { onCitySelect: (city: string) => vo
                 onChange={handleInputChange}
                 value={query}
             />
-            {suggestions.length > 0 && (
-                <ul className="bg-gray-700 text-white rounded-lg mt-1 absolute w-full z-10">
+            {isUserInput && suggestions.length > 0 && (
+                <ul className="bg-gray-700 text-white rounded-lg mt-1 absolute w-full z-10" id="suggestions">
                     {suggestions.map((city, index) => (
                         <li
                             key={index}
