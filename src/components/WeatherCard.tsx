@@ -1,48 +1,66 @@
 import { Weather } from "../types/Weather";
 
-export const WeatherCard = ({ weather, loading }: { weather: Weather, loading: boolean }) => {
+interface WeatherCardProps {
+    weather: Weather;
+    loading: boolean;
+}
 
+export const WeatherCard = ({ weather, loading }: WeatherCardProps) => {
     if (loading) {
         return (
-            <div className="flex justify-center items-center h-52">
-                <div className="animate-spin text-blue-500">
-                    <svg className="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v4m0 8v4m4-4h4m-8 0H4m8-8H4m8 0h4" />
-                    </svg>
+            <div className="text-white rounded-lg py-2 px-4 lg:px-12 animate-pulse">
+                <div className="flex flex-row justify-between">
+                    <div className="flex flex-col justify-between">
+                        <div className="mb-4">
+                            <div className="bg-gray-700 h-8 w-48 rounded mb-2"></div>
+                            <div className="bg-gray-700 h-4 w-32 rounded"></div>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="flex flex-col justify-between">
+                                <div className="bg-gray-700 h-16 w-24 rounded mb-2"></div>
+                                <div className="bg-gray-700 h-4 w-32 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex flex-col items-end">
+                        <div className="bg-gray-700 h-4 w-32 rounded mb-2"></div>
+                        <div className="bg-gray-700 h-16 w-16 rounded-full"></div>
+                    </div>
                 </div>
             </div>
         );
     }
 
     if (!weather) {
-        return <p>Weather not found</p>;
+        return <p className="text-white">Weather not found</p>;
     }
 
     const {
         location: { name, region, country, localtime },
-        current: { condition, temp_c, feelslike_c },
+        current: { condition, temp_c },
     } = weather;
 
     return (
         <div className="text-white rounded-lg py-2 px-4 lg:px-12">
-            <div className="flex flex-col lg:flex-row justify-between">
-                <div className="flex flex-col justify-between">
-                    <div className="">
+            <div className="flex flex-row justify-between relative">
+                <div className="flex flex-col justify-between gap-12 md:gap-0">
+                    <div className="mb-4">
                         <h1 className="text-3xl font-bold">{name}</h1>
                         <p className="text-sm text-neutral-300">{region}, {country}</p>
                     </div>
                     <div className="flex gap-4">
-                        <p className="text-5xl font-bold">{temp_c}°C</p>
-                        <div className="flex flex-col justify-between text-neutral-300">
-                            <p>{condition.text}</p>
-                            <p>Feels like {feelslike_c}°C</p>
+                        <div className="flex flex-col justify-between">
+                            <p className="text-5xl font-bold text-white">{temp_c}°C</p>
+                            <p className="text-neutral-300">{condition.text}</p>
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col items-end">
+                <p className="text-neutral-300 md:hidden block">{localtime}</p>
+                <div className="flex-col items-end md:flex hidden">
                     <p className="text-neutral-300">{localtime}</p>
                     <img src={condition.icon} alt={condition.text} className="object-cover size-52" />
                 </div>
+                <img src={condition.icon} alt={condition.text} className="object-cover size-40 absolute right-0 bottom-0" />
             </div>
         </div>
     );

@@ -12,6 +12,8 @@ export interface Weather {
         };
         temp_c: number;
         feelslike_c: number;
+        wind_kph: number;
+        uv: number;
     };
     forecast: {
         forecastday: [
@@ -24,6 +26,7 @@ export interface Weather {
                         text: string;
                         icon: string;
                     };
+                    daily_chance_of_rain: number;
                 };
                 hour: [
                     {

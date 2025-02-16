@@ -19,16 +19,16 @@ const App = () => {
 
     return (
         <StrictMode>
-            <div className="bg-gray-950 w-full p-4 h-screen">
+            <div className="bg-gray-950 w-full p-4 lg:h-screen">
                 <div className="flex flex-col lg:flex-row h-full gap-4">
                     <SideBar />
                     <div className="flex flex-col w-full gap-4">
                         <SearchBar onCitySelect={handleCitySelect} />
                         {weather && <WeatherCard weather={weather} loading={loading} />}
-                        <TodayForecastCard weather={weather} loading={loading} />
-                        <AirConditionsCard />
+                        {weather && <TodayForecastCard weather={weather} loading={loading} />}
+                        {weather && <AirConditionsCard weather={weather} loading={loading} />}
                     </div>
-                    <SevenDayForecast />
+                    {weather && <SevenDayForecast  weather={weather} loading={loading}/>}
                 </div>
             </div>
         </StrictMode>

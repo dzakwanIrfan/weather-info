@@ -1,15 +1,25 @@
 import { Weather } from "../types/Weather";
 
-export const TodayForecastCard = ({weather, loading}: {weather: Weather, loading: boolean}) => {
-
+export const TodayForecastCard = ({ weather, loading }: { weather: Weather, loading: boolean }) => {
     if (loading) {
         return (
-            <div className="bg-gray-800 w-full flex-1 rounded-xl">
-                <div className="flex justify-center items-center h-52">
-                    <div className="animate-spin text-blue-500">
-                        <svg className="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v4m0 8v4m4-4h4m-8 0H4m8-8H4m8 0h4" />
-                        </svg>
+            <div className="bg-gray-800 w-full flex-1 rounded-xl animate-pulse">
+                <div className="p-4 text-white">
+                    <h1 className="text-sm font-bold mb-4 text-neutral-300">TODAY'S FORECAST</h1>
+                    <div className="flex flex-col md:flex-row justify-around">
+                        {[...Array(5)].map((_, index) => (
+                            <div key={index} className="flex flex-1 justify-center items-center border-gray-700 border-b md:border-b-0 md:border-r last:border-r-0">
+                                <div className="flex md:flex-col flex-row md:justify-center justify-between w-full md:w-auto items-center gap-3 md:p-0 p-4">
+                                    <div className="bg-gray-700 h-4 w-16 rounded"></div>
+                                    <div className="bg-gray-700 h-12 w-12 rounded-full block md:hidden"></div>
+                                    <div className="bg-gray-700 h-4 w-12 rounded block md:hidden"></div>
+                                    <div className="md:flex flex-col gap-1 items-center hidden">
+                                        <div className="bg-gray-700 h-12 w-12 rounded-full"></div>
+                                        <div className="bg-gray-700 h-4 w-12 rounded"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -26,8 +36,8 @@ export const TodayForecastCard = ({weather, loading}: {weather: Weather, loading
                 {
                     hour,
                 },
-            ]
-        }
+            ],
+        },
     } = weather;
 
     const currentHour = new Date().getHours();
@@ -39,14 +49,22 @@ export const TodayForecastCard = ({weather, loading}: {weather: Weather, loading
     return (
         <div className="bg-gray-800 w-full flex-1 rounded-xl">
             <div className="p-4 text-white">
-                <h1 className="text-2xl font-bold">Today's Forecast</h1>
-                <p className="text-neutral-300">Next 6 hours</p>
-                <div className="flex justify-around">
+                <h1 className="text-sm font-bold mb-4 text-neutral-300">TODAY'S FORECAST</h1>
+                <div className="flex flex-col md:flex-row justify-around">
                     {filteredHours.map((hour, index) => (
-                        <div key={index} className="flex flex-col items-center gap-4">
-                            <p>{new Date(hour.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
-                            <img src={hour.condition.icon} alt={hour.condition.text} className="object-cover w-12 h-12" />
-                            <p>{hour.temp_c}°C</p>
+                        <div key={index} className={`flex flex-1 justify-center items-center border-gray-700 ${index === filteredHours.length - 1 ? '' : 'border-b md:border-b-0 md:border-r'}`}>
+                            <div className="flex md:flex-col flex-row md:justify-center justify-between w-full items-center gap-3 md:px-0 px-12">
+                                <p className="text-neutral-300 text-sm">{new Date(hour.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+                                <div className="flex items-center gap-2 md:hidden">
+                                    <img src={hour.condition.icon} alt={hour.condition.text} className="object-cover w-12 h-12" />
+                                    <p className="text-sm">{hour.condition.text}</p>
+                                </div>
+                                <p className="font-bold md:hidden block">{hour.temp_c}°C</p>
+                                <div className="md:flex hidden flex-col gap-1 items-center">
+                                    <img src={hour.condition.icon} alt={hour.condition.text} className="object-cover w-12 h-12" />
+                                    <p className="font-bold">{hour.temp_c}°C</p>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -54,3 +72,5 @@ export const TodayForecastCard = ({weather, loading}: {weather: Weather, loading
         </div>
     );
 };
+
+export default TodayForecastCard;
