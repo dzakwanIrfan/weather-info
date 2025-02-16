@@ -12,7 +12,6 @@ export const SearchBar = ({ onCitySelect }: { onCitySelect: (city: string) => vo
                 .then(response => {
                     const data = response.data.data;
                     const cities = data.filter((city: string) => city.toLowerCase().includes(query.toLowerCase())).slice(0, 5);
-                    console.log(cities);
                     setSuggestions(cities);
                 })
                 .catch(error => {

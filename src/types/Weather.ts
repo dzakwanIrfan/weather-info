@@ -13,4 +13,29 @@ export interface Weather {
         temp_c: number;
         feelslike_c: number;
     };
+    forecast: {
+        forecastday: [
+            {
+                date: string;
+                day: {
+                    maxtemp_c: number;
+                    mintemp_c: number;
+                    condition: {
+                        text: string;
+                        icon: string;
+                    };
+                };
+                hour: [
+                    {
+                        time: string;
+                        temp_c: number;
+                        condition: {
+                            text: string;
+                            icon: string;
+                        };
+                    }
+                ]
+            }
+        ]
+    }
 }
