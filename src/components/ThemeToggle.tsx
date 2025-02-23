@@ -35,7 +35,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center transition duration-500 ease-in-out transform hover:scale-110"
+      className="p-2 bg-gray-200 dark:bg-gray-700 rounded-xl flex items-center justify-center transition duration-500 ease-in-out transform hover:scale-110"
     >
       {isDarkMode ? (
         <div className="flex justify-center items-center gap-2">
