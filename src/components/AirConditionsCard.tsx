@@ -11,11 +11,11 @@ interface AirConditionsComponentProps {
 const AirConditionsComponent = ({ label, temp, icon }: AirConditionsComponentProps) => {
     return (
         <div className="flex items-first gap-2">
-            <IconContext.Provider value={{ className: 'text-2xl text-gray-400' }}>
+            <IconContext.Provider value={{ className: 'text-2xl text-gray-600' }}>
                 {icon}
             </IconContext.Provider>
             <div className="flex flex-col gap-2">
-                <p className="text-gray-400 font-medium">{label}</p>
+                <p className="text-gray-600 font-medium">{label}</p>
                 <p className="text-3xl font-bold">{temp}</p>
             </div>
         </div>
@@ -60,9 +60,9 @@ export const AirConditionsCard = ({ weather, loading }: { weather: Weather, load
     } = weather;
 
     return (
-        <div className="bg-gray-800 w-full flex-1 rounded-xl">
-            <div className="p-4 text-white">
-                <h1 className="text-sm text-neutral-300 font-bold mb-4">AIR CONDITIONS</h1>
+        <div className="bg-gray-800 dark:bg-white w-full flex-1 rounded-xl drop-shadow-lg">
+            <div className="p-4 text-white dark:text-black">
+                <h1 className="text-sm text-neutral-300 dark:text-neutral-700 font-bold mb-4">AIR CONDITIONS</h1>
                 <div className="flex justify-center items-center">
                     <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8 md:gap-4">
                         <AirConditionsComponent label="Real Feel" temp={`${feelslike_c}°C`} icon={<FaTemperatureHalf />} />

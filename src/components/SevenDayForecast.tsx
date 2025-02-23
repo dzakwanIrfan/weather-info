@@ -34,20 +34,20 @@ export const SevenDayForecast = ({ weather, loading }: SevenDayForecastProps) =>
     }
 
     return (
-        <div className="bg-gray-800 h-full xl:w-[64rem] w-full rounded-xl">
-            <div className="p-4 text-white">
-                <h1 className="text-sm font-bold mb-4 text-neutral-300">7-DAY FORECAST</h1>
+        <div className="bg-gray-800 dark:bg-white h-full xl:w-[64rem] w-full rounded-xl drop-shadow-lg">
+            <div className="p-4 text-white dark:text-black">
+                <h1 className="text-sm font-bold mb-4 text-neutral-300 dark:text-neutral-700">7-DAY FORECAST</h1>
                 {weather.forecast.forecastday.map((forecast, index) => (
                     <div key={index} className="flex justify-between items-center px-8 border-gray-400 border-b pb-4">
-                        <p className="text-gray-400 text-sm font-bold">{index === 0 ? 'Today' : new Date(forecast.date).toLocaleDateString([], { weekday: 'short' })}</p>
+                        <p className="text-gray-400 dark:text-gray-600 text-sm font-bold">{index === 0 ? 'Today' : new Date(forecast.date).toLocaleDateString([], { weekday: 'short' })}</p>
                         <div className="flex justify-center items-center gap-3">
                             <img src={forecast.day.condition.icon} alt={forecast.day.condition.text} />
                             <p className="font-bold">{forecast.day.condition.text}</p>
                         </div>
                         <div className="flex flex-col gap-1">
-                            <p className="text-white text-sm">
+                            <p className="text-white dark:text-black text-sm">
                                 <span className="font-bold">{forecast.day.maxtemp_c}°C</span>
-                                <span className="text-gray-400">/{forecast.day.mintemp_c}°C</span>
+                                <span className="text-gray-400 dark:text-gray-600">/{forecast.day.mintemp_c}°C</span>
                             </p>
                         </div>
                     </div>

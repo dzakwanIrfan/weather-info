@@ -35,21 +35,21 @@ export const SearchBar = ({ onCitySelect }: { onCitySelect: (city: string) => vo
     };
 
     return (
-        <div className="bg-gray-800 w-full h-12 rounded-lg relative">
+        <div className="bg-gray-800 dark:bg-white w-full h-12 rounded-lg relative drop-shadow-lg z-50">
             <input 
                 type="text" 
-                className="w-full h-full bg-gray-800 text-white px-4 rounded-lg outline-none" 
+                className="w-full h-full bg-gray-800 dark:bg-white text-white dark:text-black px-4 rounded-lg outline-none z-50" 
                 placeholder="Search city..." 
                 onChange={handleInputChange}
                 value={query}
             />
             {isUserInput && suggestions.length > 0 && (
-                <ul className="bg-gray-700 text-white rounded-lg mt-1 absolute w-full z-10" id="suggestions">
+                <ul className="bg-gray-700 dark:bg-gray-300 text-white dark:text-black rounded-lg mt-1 absolute w-full z-50" id="suggestions">
                     {suggestions.map((city, index) => (
                         <li
                             key={index}
                             onClick={() => handleSuggestionClick(city)}
-                            className="cursor-pointer px-4 py-2 hover:bg-gray-600"
+                            className="cursor-pointer px-4 py-2 hover:bg-gray-600 dark:hover:bg-gray-400"
                         >
                             {city}
                         </li>

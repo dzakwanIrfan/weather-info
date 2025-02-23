@@ -19,7 +19,7 @@ const App = () => {
 
     return (
         <StrictMode>
-            <div className="bg-gray-950 w-full p-4 lg:h-screen">
+            <div className="bg-gray-950 dark:bg-neutral-200 w-full p-4 lg:h-screen">
                 <div className="flex flex-col lg:flex-row h-full gap-4">
                     <SideBar />
                     <div className="flex flex-col w-full gap-4">

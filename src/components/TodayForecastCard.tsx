@@ -47,14 +47,14 @@ export const TodayForecastCard = ({ weather, loading }: { weather: Weather, load
     });
 
     return (
-        <div className="bg-gray-800 w-full flex-1 rounded-xl">
-            <div className="p-4 text-white">
-                <h1 className="text-sm font-bold mb-4 text-neutral-300">TODAY'S FORECAST</h1>
+        <div className="bg-gray-800 dark:bg-white w-full flex-1 rounded-xl drop-shadow-lg">
+            <div className="p-4 text-white dark:text-black">
+                <h1 className="text-sm font-bold mb-4 text-neutral-300 dark:text-neutral-700">TODAY'S FORECAST</h1>
                 <div className="flex flex-col md:flex-row justify-around">
                     {filteredHours.map((hour, index) => (
                         <div key={index} className={`flex flex-1 justify-center items-center border-gray-700 ${index === filteredHours.length - 1 ? '' : 'border-b md:border-b-0 md:border-r'}`}>
                             <div className="flex md:flex-col flex-row md:justify-center justify-between w-full items-center gap-3 md:px-0 px-12">
-                                <p className="text-neutral-300 text-sm">{new Date(hour.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+                                <p className="text-neutral-300 dark:text-neutral-700 text-sm">{new Date(hour.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                                 <div className="flex items-center gap-2 md:hidden">
                                     <img src={hour.condition.icon} alt={hour.condition.text} className="object-cover w-12 h-12" />
                                     <p className="text-sm">{hour.condition.text}</p>

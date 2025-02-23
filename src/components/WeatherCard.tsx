@@ -41,23 +41,23 @@ export const WeatherCard = ({ weather, loading }: WeatherCardProps) => {
     } = weather;
 
     return (
-        <div className="text-white rounded-lg py-2 px-4 lg:px-12">
+        <div className="text-white dark:text-black rounded-lg py-2 px-4 lg:px-12">
             <div className="flex flex-row justify-between relative">
                 <div className="flex flex-col justify-between gap-12 md:gap-0">
                     <div className="mb-4">
                         <h1 className="text-3xl font-bold">{name}</h1>
-                        <p className="text-sm text-neutral-300">{region}, {country}</p>
+                        <p className="text-sm text-neutral-300 dark:text-neutral-700">{region}, {country}</p>
                     </div>
                     <div className="flex gap-4">
                         <div className="flex flex-col justify-between">
-                            <p className="text-5xl font-bold text-white">{temp_c}°C</p>
-                            <p className="text-neutral-300">{condition.text}</p>
+                            <p className="text-5xl font-bold text-white dark:text-black">{temp_c}°C</p>
+                            <p className="text-neutral-300 dark:text-neutral-700">{condition.text}</p>
                         </div>
                     </div>
                 </div>
-                <p className="text-neutral-300 md:hidden block">{localtime}</p>
+                <p className="text-neutral-300 dark:text-neutral-700 md:hidden block">{localtime}</p>
                 <div className="flex-col items-end md:flex hidden">
-                    <p className="text-neutral-300">{localtime}</p>
+                    <p className="text-neutral-300 dark:text-neutral-700">{localtime}</p>
                     <img src={condition.icon} alt={condition.text} className="object-cover size-52" />
                 </div>
                 <img src={condition.icon} alt={condition.text} className="object-cover size-40 absolute right-0 bottom-0" />
