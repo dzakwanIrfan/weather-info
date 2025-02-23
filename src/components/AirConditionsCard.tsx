@@ -25,16 +25,16 @@ const AirConditionsComponent = ({ label, temp, icon }: AirConditionsComponentPro
 export const AirConditionsCard = ({ weather, loading }: { weather: Weather, loading: boolean }) => {
     if (loading) {
         return (
-            <div className="bg-gray-800 w-full flex-1 rounded-xl animate-pulse">
-                <div className="p-4 text-white">
-                    <h1 className="text-sm text-neutral-300 font-bold mb-4">AIR CONDITIONS</h1>
+            <div className="bg-gray-800 dark:bg-white w-full flex-1 rounded-xl animate-pulse">
+                <div className="p-4 text-white dark:text-black">
+                    <h1 className="text-sm text-neutral-300 dark:text-neutral-700 font-bold mb-4">AIR CONDITIONS</h1>
                     <div className="grid md:grid-cols-4 grid-cols-2 gap-4 justify-around">
                         {[...Array(4)].map((_, index) => (
                             <div key={index} className="flex flex-col items-center gap-3">
-                                <div className="bg-gray-700 h-4 w-16 rounded"></div>
+                                <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-16 rounded"></div>
                                 <div className="flex flex-col gap-1 items-center">
-                                    <div className="bg-gray-700 h-12 w-12 rounded-full"></div>
-                                    <div className="bg-gray-700 h-4 w-12 rounded"></div>
+                                    <div className="bg-gray-700 dark:bg-neutral-300 h-12 w-12 rounded-full"></div>
+                                    <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-12 rounded"></div>
                                 </div>
                             </div>
                         ))}

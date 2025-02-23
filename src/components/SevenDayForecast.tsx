@@ -8,19 +8,19 @@ interface SevenDayForecastProps {
 export const SevenDayForecast = ({ weather, loading }: SevenDayForecastProps) => {
     if (loading) {
         return (
-            <div className="bg-gray-800 h-full xl:w-[64rem] w-full rounded-xl animate-pulse">
-                <div className="p-4 text-white">
-                    <h1 className="text-sm font-bold mb-4 text-neutral-300">7-DAY FORECAST</h1>
+            <div className="bg-gray-800 dark:bg-white h-full xl:w-[64rem] w-full rounded-xl animate-pulse">
+                <div className="p-4 text-white dark:text-black">
+                    <h1 className="text-sm font-bold mb-4 text-neutral-300 dark:text-neutral-700">7-DAY FORECAST</h1>
                     {[...Array(7)].map((_, index) => (
                         <div key={index} className="flex justify-between items-center px-8 border-gray-400 border-b py-4">
-                            <div className="bg-gray-700 h-4 w-20 rounded"></div>
+                            <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-20 rounded"></div>
                             <div className="flex justify-center items-center gap-3">
-                                <div className="bg-gray-700 h-12 w-12 rounded-full"></div>
-                                <div className="bg-gray-700 h-4 w-32 rounded"></div>
+                                <div className="bg-gray-700 dark:bg-neutral-300 h-12 w-12 rounded-full"></div>
+                                <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-32 rounded"></div>
                             </div>
                             <div className="flex gap-1">
-                                <div className="bg-gray-700 h-4 w-16 rounded"></div>
-                                <div className="bg-gray-700 h-4 w-16 rounded"></div>
+                                <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-16 rounded"></div>
+                                <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-16 rounded"></div>
                             </div>
                         </div>
                     ))}

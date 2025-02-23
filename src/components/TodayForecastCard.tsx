@@ -3,19 +3,19 @@ import { Weather } from "../types/Weather";
 export const TodayForecastCard = ({ weather, loading }: { weather: Weather, loading: boolean }) => {
     if (loading) {
         return (
-            <div className="bg-gray-800 w-full flex-1 rounded-xl animate-pulse">
+            <div className="bg-gray-800 dark:bg-white w-full flex-1 rounded-xl animate-pulse">
                 <div className="p-4 text-white">
-                    <h1 className="text-sm font-bold mb-4 text-neutral-300">TODAY'S FORECAST</h1>
+                    <h1 className="text-sm font-bold mb-4 text-neutral-300 dark:text-neutral-700">TODAY'S FORECAST</h1>
                     <div className="flex flex-col md:flex-row justify-around">
                         {[...Array(5)].map((_, index) => (
                             <div key={index} className="flex flex-1 justify-center items-center border-gray-700 border-b md:border-b-0 md:border-r last:border-r-0">
                                 <div className="flex md:flex-col flex-row md:justify-center justify-between w-full md:w-auto items-center gap-3 md:p-0 p-4">
-                                    <div className="bg-gray-700 h-4 w-16 rounded"></div>
-                                    <div className="bg-gray-700 h-12 w-12 rounded-full block md:hidden"></div>
-                                    <div className="bg-gray-700 h-4 w-12 rounded block md:hidden"></div>
+                                    <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-16 rounded"></div>
+                                    <div className="bg-gray-700 dark:bg-neutral-300 h-12 w-12 rounded-full block md:hidden"></div>
+                                    <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-12 rounded block md:hidden"></div>
                                     <div className="md:flex flex-col gap-1 items-center hidden">
-                                        <div className="bg-gray-700 h-12 w-12 rounded-full"></div>
-                                        <div className="bg-gray-700 h-4 w-12 rounded"></div>
+                                        <div className="bg-gray-700 dark:bg-neutral-300 h-12 w-12 rounded-full"></div>
+                                        <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-12 rounded"></div>
                                     </div>
                                 </div>
                             </div>

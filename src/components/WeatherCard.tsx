@@ -12,19 +12,19 @@ export const WeatherCard = ({ weather, loading }: WeatherCardProps) => {
                 <div className="flex flex-row justify-between">
                     <div className="flex flex-col justify-between">
                         <div className="mb-4">
-                            <div className="bg-gray-700 h-8 w-48 rounded mb-2"></div>
-                            <div className="bg-gray-700 h-4 w-32 rounded"></div>
+                            <div className="bg-gray-700 dark:bg-neutral-300 h-8 w-48 rounded mb-2"></div>
+                            <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-32 rounded"></div>
                         </div>
                         <div className="flex gap-4">
                             <div className="flex flex-col justify-between">
-                                <div className="bg-gray-700 h-16 w-24 rounded mb-2"></div>
-                                <div className="bg-gray-700 h-4 w-32 rounded"></div>
+                                <div className="bg-gray-700 dark:bg-neutral-300 h-16 w-24 rounded mb-2"></div>
+                                <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-32 rounded"></div>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-col items-end">
-                        <div className="bg-gray-700 h-4 w-32 rounded mb-2"></div>
-                        <div className="bg-gray-700 h-16 w-16 rounded-full"></div>
+                        <div className="bg-gray-700 dark:bg-neutral-300 h-4 w-32 rounded mb-2"></div>
+                        <div className="bg-gray-700 dark:bg-neutral-300 h-16 w-16 rounded-full"></div>
                     </div>
                 </div>
             </div>
