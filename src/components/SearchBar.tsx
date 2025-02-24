@@ -1,24 +1,32 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FaSpinner } from 'react-icons/fa';
 
 export const SearchBar = ({ onCitySelect }: { onCitySelect: (city: string) => void }) => {
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [isUserInput, setIsUserInput] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
+    const [noResults, setNoResults] = useState(false);
 
     useEffect(() => {
         if (query.length > 2) {
+            setIsLoading(true);
             axios.post('https://countriesnow.space/api/v0.1/countries/cities', { country: 'Indonesia' })
                 .then(response => {
                     const data = response.data.data;
                     const cities = data.filter((city: string) => city.toLowerCase().includes(query.toLowerCase())).slice(0, 5);
                     setSuggestions(cities);
+                    setNoResults(cities.length === 0);
+                    setIsLoading(false);
                 })
                 .catch(error => {
                     console.error(error);
+                    setIsLoading(false);
                 });
         } else {
             setSuggestions([]);
+            setNoResults(false);
         }
     }, [query, isUserInput]);
 
@@ -43,7 +51,15 @@ export const SearchBar = ({ onCitySelect }: { onCitySelect: (city: string) => vo
                 onChange={handleInputChange}
                 value={query}
             />
-            {isUserInput && suggestions.length > 0 && (
+            {isLoading && (
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                    <div className="flex gap-2 justify-center items-center">
+                        <FaSpinner className="animate-spin text-white dark:text-black" />
+                        <div className="text-sm text-white dark:text-black">Please wait</div>
+                    </div>
+                </div>
+            )}
+            {isUserInput && !isLoading && suggestions.length > 0 && (
                 <ul className="bg-gray-700 dark:bg-gray-300 text-white dark:text-black rounded-lg mt-1 absolute w-full z-50" id="suggestions">
                     {suggestions.map((city, index) => (
                         <li
@@ -56,6 +72,13 @@ export const SearchBar = ({ onCitySelect }: { onCitySelect: (city: string) => vo
                     ))}
                 </ul>
             )}
+            {isUserInput && !isLoading && noResults && (
+                <div className="bg-gray-700 dark:bg-gray-300 text-white dark:text-black rounded-lg mt-1 absolute w-full z-50 p-4">
+                    No results found
+                </div>
+            )}
         </div>
     )
 }
+
+export default SearchBar;
